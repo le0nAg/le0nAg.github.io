@@ -1,0 +1,17 @@
+@import "{{ site.theme }}";
+
+body {
+  font-size: 18px;
+  max-width: 900px;
+  margin: 0 auto; 
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+}
+
+.post-content {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
