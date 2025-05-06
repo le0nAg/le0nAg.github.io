@@ -1,3 +1,3 @@
 # le0nAg.github.io
 
-testing how it works
+This repository aims to manage my [website](https://le0nag.github.io/).
