@@ -195,7 +195,7 @@ DEPENDENCIES
   http_parser.rb (~> 0.6.0)
   jekyll
   jekyll-feed (~> 0.12)
-  jekyll-theme-console
+  jekyll-theme-console (~> 0.4.0)
   minima (~> 2.5)
   minimal-mistakes-jekyll
   tzinfo (>= 1, < 3)
