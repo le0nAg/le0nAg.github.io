@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  ""
-date:   2025-03-23 23:09:22 +0100
-categories: jekyll update
+title:  "Binary Search and SQLi"
+date:   2025-05-10 23:09:22 +0100
+categories: own scripting
 ---
