@@ -4,5 +4,3 @@
 
 layout: home
 ---
-
-what if I write something here
