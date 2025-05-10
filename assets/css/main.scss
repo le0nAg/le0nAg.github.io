@@ -1,8 +1,11 @@
-// @import "{{ site.theme }}";
+@import "{{ site.theme }}";
 
-@import "light";
-@import "base";
+$background-color: purple;  // darker background
+$text-color: #f0f0f0;         // lighter text
+$link-color: #5af78e;         // green links
 
-@media (prefers-color-scheme: dark) {
-	@import "dark";
+// Custom styles
+.site-title {
+  font-size: 2em;
+  font-weight: bold;
 }
