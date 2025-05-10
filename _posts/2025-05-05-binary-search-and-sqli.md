@@ -5,7 +5,7 @@ date:   2025-05-05 23:09:22 +0100
 categories: scripting
 ---
 
-# The importance of writing your own exploit: binary search and SQLi
+# <span style="font-size: 24px;"> The importance of writing your own exploit: binary search and SQLi </span>
 
 ## Introduction
 
