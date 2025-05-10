@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The importance of writing your own exploit: binary search and SQLi"
+title:  "Binary search and SQLi"
 date:   2025-05-05 23:09:22 +0100
 categories: scripting
 ---
