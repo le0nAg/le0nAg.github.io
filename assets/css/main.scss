@@ -1,10 +1,16 @@
-@import "{{ site.theme }}";
+---
+# Front matter necessario per Jekyll
+---
 
-$background-color: purple;  // darker background
-$text-color: #f0f0f0;         // lighter text
-$link-color: #5af78e;         // green links
+@import "{{ site.style }}";
+@import "base";
 
-// Custom styles
+:root {
+  --background-color: purple !important;
+  --text-color: #f0f0f0 !important;
+  --link-color: #5af78e !important;
+}
+
 .site-title {
   font-size: 2em;
   font-weight: bold;
