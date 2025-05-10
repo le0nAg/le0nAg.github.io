@@ -10,14 +10,14 @@
   {% endif %}
 
   {%- if site.listen_for_clients_preferred_style -%}
-    <link rel="stylesheet" type="text/css" href="{{ "/assets/main.scss" | relative_url }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/assets/main.css" | relative_url }}">
   {%- else -%}
     {%- if site.style == 'light' -%}
-      <link rel="stylesheet" type="text/css" href="{{ "/assets/main-light.scss" | relative_url }}">
+      <link rel="stylesheet" type="text/css" href="{{ "/assets/main-light.css" | relative_url }}">
     {%- elsif site.style == 'hacker' -%}
-      <link rel="stylesheet" type="text/css" href="{{ "/assets/main-hacker.scss" | relative_url }}">
+      <link rel="stylesheet" type="text/css" href="{{ "/assets/main-hacker.css" | relative_url }}">
     {%- else -%}
-      <link rel="stylesheet" type="text/css" href="{{ "/assets/main-dark.scss" | relative_url }}">
+      <link rel="stylesheet" type="text/css" href="{{ "/assets/main-dark.css" | relative_url }}">
     {%- endif -%}
   {%- endif -%}
 
