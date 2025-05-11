@@ -10,13 +10,11 @@ categories: scripting
 ## Introduction
 
 Like many I started my journey in web application hacking through CTFs (and I seriously raccomend them, it’s a valuable and funny way to learn!) but after googling some details of some CTFs that I was unable to solve, as happens when you don’t know something, I happened to read some write-ups of the solution.
-In most of the cases you will find a brief explanation of the vulnerability and a very vertical one of the exploitation process used to get the flag.
-Also in most of the cases you are going to use some tools that to almost of the work to you, presenting to you the solution like a magician takes a rabbit from his hat.
-The combination of all of this things make sure that you hardly understand fully and deeply the vulnerability that you exploited.
-Does this matters? It depends, let’s go!
-
-When and why is it important to understand deeply vulnerabilities?
-In most of the cases, if you are performing a penetration testing for an average company, that needs average tradeoff security it’s highly unlike that you will go deep in the process of exploring the vulnerabilities since the attack surface is very vast and it your objective is not that of discovering all the 0-days of the system but
+In most of the cases you will find a brief explanation of the vulnerability and a very specif one of the exploitation process used to get the flag.
+Also in most of the cases in those writeups you are going to use some pre-build tools that do almost all of the work for you, giving you the flag or a prebuild exploit.
+Using them is like watching a magician taking a rabbit from his hat, but I think that the really cool part of hacking is the curiosity, is the willing of understanding the magic behind that trick.
+With this article, and generally with this blog, I want to try to go deeper in the white rabbit hole.
+Today we are going to see two important concepts of computer science and cybersecurity: time complexity and SQL injections.
 
 ## What is time complexity?
 
