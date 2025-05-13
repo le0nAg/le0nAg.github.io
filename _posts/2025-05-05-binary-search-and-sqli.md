@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Binary search and SQLi"
-# date:   2025-05-05 23:09:22 +0100
+date:   2025-05-05 23:09:22 +0100
 categories: scripting
 author: `[le0nAg](https://le0nag.github.io/whoami/)`
 ---
