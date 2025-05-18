@@ -78,24 +78,24 @@ a:hover {
 }
 
 /* Adjust zoom for mobile devices */
-@media only screen and (max-device-width: 500px) {
-    * {
-        font-size: $mobile-font-size !important;
-    }
+// @media only screen and (max-device-width: 500px) {
+//     * {
+//         font-size: $mobile-font-size !important;
+//     }
     
-    body {
-        zoom: 1; /* Reset zoom for mobile to prevent layout issues */
-        -moz-transform: none;
-    }
+//     body {
+//         zoom: 1; /* Reset zoom for mobile to prevent layout issues */
+//         -moz-transform: none;
+//     }
     
-    /* Ensure images are properly constrained on mobile */
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 15px 0;
-    }
-}
+//     /* Ensure images are properly constrained on mobile */
+//     img {
+//         max-width: 100%;
+//         height: auto;
+//         display: block;
+//         margin: 15px 0;
+//     }
+// }
 
 /**
  * Layout
