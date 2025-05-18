@@ -40,7 +40,7 @@ int search(D, E):
     return -1
 ```
 
-![simulation of linear search](assets/images/linear_search.gif)
+![simulation of linear search](/assets/images/linear_search.gif)
 
 <br/>
 
@@ -71,7 +71,7 @@ int binarySearch(D, E):
     return -1
 ```
 
-![simulation of binary search](assets/images/bin_search.gif)
+![simulation of binary search](/assets/images/bin_search.gif)
 
 <br/>
 
