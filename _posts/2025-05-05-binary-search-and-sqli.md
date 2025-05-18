@@ -38,6 +38,7 @@ int search(D, E):
             return i
     return -1
 ```
+![simulation of linear search](static/bin_search.gif)
 
 Another approach is the so called binary search.
 The idea is to repeatedly divide the search interval in half:
