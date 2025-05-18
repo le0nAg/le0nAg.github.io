@@ -23,6 +23,36 @@ body {
     color: var(--text-color);
     text-align: left;
     line-height: $base-line-height !important;
+    /* Adding zoom capability for better readability */
+    zoom: 1;
+    -moz-transform: scale(1);
+    -moz-transform-origin: 0 0;
+}
+
+/* Adding proper image scaling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px 0;
+    border-radius: 4px;
+}
+
+/* Media query for zoom on different screen sizes */
+@media screen and (min-width: 1200px) {
+    body {
+        zoom: 1.1;
+        -moz-transform: scale(1.1);
+        -moz-transform-origin: 0 0;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    body {
+        zoom: 1.2;
+        -moz-transform: scale(1.2);
+        -moz-transform-origin: 0 0;
+    }
 }
 
 h1 { font-size: $base-font-size * 1.6;  margin: 0px;  margin-top: 28px;  font-weight: bold;  color: var(--text-color); }
@@ -47,9 +77,21 @@ a:hover {
     background-color: var(--base-color);
 }
 
+/* Adjust zoom for mobile devices */
 @media only screen and (max-device-width: 500px) {
     * {
         font-size: $mobile-font-size !important;
+    }
+    
+    body {
+        zoom: 1; /* Reset zoom for mobile to prevent layout issues */
+        -moz-transform: none;
+    }
+    
+    /* Ensure images are properly constrained on mobile */
+    img {
+        max-width: 100%;
+        height: auto;
     }
 }
 
@@ -61,6 +103,20 @@ a:hover {
     max-width: $container-max-width;
     margin-right: auto;
     margin-left: auto;
+}
+
+/* Image container for better layout control */
+.image-container {
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.image-container img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
 }
 
 p {
