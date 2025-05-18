@@ -31,14 +31,14 @@ What does that mean? Let's take as example a classical search problem to explain
 
 The most basic approach to solve the problem can be done by looking for each element of the set:
 ```
-# pseudocode
+
 int search(D, E):
     for (int i = 1; i < length(D); i++):
         if(D[i] == E):
             return i
     return -1
 ```
-![simulation of linear search](static/bin_search.gif)
+![simulation of linear search](../static/bin_search.gif)
 
 Another approach is the so called binary search.
 The idea is to repeatedly divide the search interval in half:
