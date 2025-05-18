@@ -39,9 +39,8 @@ int search(D, E):
             return i
     return -1
 ```
-
+<br/>
 ![simulation of linear search](/assets/images/linear_search.gif){:width="500px"}
-
 <br/>
 
 Another approach is the so called binary search.
@@ -71,8 +70,8 @@ int binarySearch(D, E):
     return -1
 ```
 
+<br/>
 ![simulation of binary search](/assets/images/bin_search.gif){:width="500px"}
-
 <br/>
 
 Now: we have two diffente algorithms to solve the same same problem, which one should we choose?
