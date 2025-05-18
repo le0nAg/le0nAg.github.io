@@ -119,7 +119,7 @@ This logarithmic growth is what makes binary search significantly more efficient
 
 This concept of algorithmic efficiency is crucial not only for general programming but also for security-related tasks, cryptography security, for example is based on this concept or like the blind SQL injection techniques we'll discuss next, and see how to use it to optimize our exploitation prcess.
 
-## What is a SQLi? - Types
+## What is a SQLi? - Types, exploits & mitigations
 
 SQL injection are a particular subset of code injection vulnerabilities.
 
