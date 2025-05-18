@@ -7,7 +7,7 @@ categories: scripting
 
 # The importance of writing your own exploit: <br />Binary search and SQLi
 
-# ! [writing in progres] ! 
+# ! [writing in progres]
 
 ## Introduction
 
@@ -30,6 +30,7 @@ What does that mean? Let's take as example a classical search problem to explain
 > - given the set D = {"a", "d", "l", "z"} and the element E = "b" the aspected output is -1 since it's not an elment in the set.
 
 The most basic approach to solve the problem can be done by looking for each element of the set:
+
 ```
 
 int search(D, E):
@@ -38,7 +39,10 @@ int search(D, E):
             return i
     return -1
 ```
-![simulation of linear search](../static/bin_search.gif)
+
+![simulation of linear search](../static/linear_search.gif)
+
+<br/>
 
 Another approach is the so called binary search.
 The idea is to repeatedly divide the search interval in half:
@@ -66,6 +70,11 @@ int binarySearch(D, E):
 
     return -1
 ```
+
+![simulation of binary search](../static/bin_search.gif)
+
+<br/>
+
 Now: we have two diffente algorithms to solve the same same problem, which one should we choose?
 Generally speaking the answer to this question depends on the choise criteria, in this case we want the most efficient one, or in other words, the algorithm that gives as the correct output as soon as possible.
 
@@ -78,6 +87,7 @@ I'm stuck as a turing machine in the halting problem.
 We are going to use for this part [this lab](https://portswigger.net/web-security/sql-injection/blind/lab-conditional-responses).
 
 ### Burpsuite usage
+
 The first and most common approach to this challenge we can take is using the
 
 ### Scripting a solution
