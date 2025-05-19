@@ -24,9 +24,9 @@ body {
     text-align: left;
     line-height: $base-line-height !important;
     /* Adding zoom capability for better readability */
-    zoom: 1;
-    -moz-transform: scale(1);
-    -moz-transform-origin: 0 0;
+    // zoom: 1;
+    // -moz-transform: scale(1);
+    // -moz-transform-origin: 0 0;
 }
 
 /* Adding proper image scaling */
