@@ -123,7 +123,7 @@ This concept of algorithmic efficiency is crucial not only for general programmi
 
 SQL injection are a particular subset of code injection vulnerabilities and like all code injection vulnerabilities it arises when the input of a program is not well sanitized and happens that it is intepreted as (injected) code.
 
-SQL injection are common in web applications 
+SQL injection are common in web applications and allow an attacker to execute SQL code 
 
 ## Blind SQLi: two approaches burpsuite vs scripting
 
