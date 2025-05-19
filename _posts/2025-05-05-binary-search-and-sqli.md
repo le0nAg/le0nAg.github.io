@@ -33,13 +33,14 @@ What does that mean? Let's take a classical search problem as an example to expl
 
 The most basic approach to solve the problem can be done by looking at each element of the set:
 
-```
+```text
 int search(D, E):
     for (int i = 1; i < length(D); i++):
         if(D[i] == E):
             return i
     return -1
 ```
+
 <br/>
 ![simulation of linear search](/assets/images/linear_search.gif){:width="500px"}
 <br/>
@@ -54,7 +55,8 @@ The idea is to repeatedly divide the search interval in half:
 5. If the range becomes empty, the element is not found.
 
 <br/>
-```
+
+```text
 int binarySearch(D, E):
     low = 0
     high = length(D) - 1
@@ -81,9 +83,9 @@ Generally speaking, the answer to this question depends on the choice criteria. 
 
 Going back to our example, we can count how many comparisons (steps) we need to find the target number E.
 
-```
+```text
 Example 1:
-D = {1, 5, 8, 15}      
+D = {1, 5, 8, 15}
 E = 8
 
 |   Algorithm       | # steps   |
@@ -108,10 +110,12 @@ We formalize this concept through the *asymptotic notation*, in particular throu
 The Big-O notation describes the upper bound of an algorithm's time complexity in the worst-case scenario. It helps us understand how the algorithm's performance scales with increasing input size.
 
 For our examples:
+
 - **Linear search**: O(n) - The time complexity grows linearly with the input size. In the worst case, we might need to check every element.
 - **Binary search**: O(log n) - The time complexity grows logarithmically with the input size. With each step, we eliminate half of the remaining elements.
 
 This logarithmic growth is what makes binary search significantly more efficient for large datasets. Consider a dataset with 1,000,000 elements:
+
 - Linear search might require up to 1,000,000 comparisons in the worst case
 - Binary search would require at most 20 comparisons (log₂ 1,000,000 ≈ 20)
 
