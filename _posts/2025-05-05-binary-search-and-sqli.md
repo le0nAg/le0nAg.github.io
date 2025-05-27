@@ -11,7 +11,7 @@ categories  :   scripting
 
 ## Introduction
 
-Like many others, I started my journey in web application hacking through CTFs (and I seriously recommend them, it's a valuable and fun way to learn!). After googling some details of CTFs that I was unable to solve, as happens when you don't know something, I found myself reading write-ups of the solutions.
+Like many others, I started my journey in web application hacking through CTFs (and I seriously recommend them—it's a valuable and fun way to learn!). After googling some details of CTFs that I was unable to solve, as happens when you don't know something, I found myself reading write-ups of the solutions.
 
 In most cases, you will find a brief explanation of the vulnerability and a very specific one of the exploitation process used to get the flag. Also, in most cases, these writeups will mention pre-built tools that do almost all of the work for you, giving you the flag or a pre-built exploit.
 
@@ -121,23 +121,23 @@ This logarithmic growth is what makes binary search significantly more efficient
 
 ![Alt: a graph comparing the growth of linear vs logarithmic](/assets/images/bin_lin_graph.png){:width="500px"}
 
-This concept of algorithmic efficiency is crucial not only for general programming but also for security-related tasks, cryptography, for example, relies on this concept and we'll discuss later how to use it to optimize our exploitation process.
+This concept of algorithmic efficiency is crucial not only for general programming but also for security-related tasks. Cryptography, for example, relies on this concept, and we'll discuss later how to use it to optimize our exploitation process.
 
 ## What is a SQLi? - Types, exploits & mitigations
 
-SQL injection are a particular subset of code injection vulnerabilities and like all code injection vulnerabilities it arises when the input of a program is not well sanitized and happens that it is intepreted by the system as (injected) code.
+SQL injections are a particular subset of code injection vulnerabilities, and like all code injection vulnerabilities, they arise when the input of a program is not well sanitized and it happens that it is interpreted by the system as (injected) code.
 
-SQL injection are common in web applications and allow an attacker to execute SQL code. The implications of such power are as you can imagine, it can lead to data exfiltration, data manipulation, and even full system compromise.
+SQL injections are common in web applications and allow an attacker to execute SQL code. The implications of such power are, as you can imagine, tremendous: the attacker can violate information confidentiality through information disclosure, can bypass authentication processes, break authorization mechanisms, and through data manipulation compromise the integrity of information stored in the database.
 
-We are going to define a complete [threat model](https://owasp.org/www-community/Threat_Modeling), a detection process and patching/mitagation strategies in another post, here we will see just some the most common types their exploitation process, let's see a basic example.
+We are going to define a complete [threat model](https://owasp.org/www-community/Threat_Modeling), a detection process, and patching/mitigation strategies in another post. <u>Here we will see just some of the most common types and their exploitation processes</u>.
 
 ### Simple SQLi & login bypass
 
 Let's see the simplest example of SQL injection and how we can use it to bypass the login process.
-Observing a login form like the following one
+Observing a login form like the following one:
 ![simulation of binary search](/assets/images/form.png)
 
-we hardly can say anything about the backend it can be a php code like the following:
+We can hardly say anything about the backend. It can be PHP code like the following:
 
 ```php
     $host = "localhost";
@@ -167,7 +167,7 @@ we hardly can say anything about the backend it can be a php code like the follo
     $conn->close();
 ```
 
-or a python-flask like the following one:
+or Python Flask code like the following:
 
 ```python
     from flask import Flask, request
@@ -196,28 +196,27 @@ or a python-flask like the following one:
         app.run(debug=True)
 ```
 
-or anything else but the key crucial point is that we can control the two inputs "user" and "pwd"
-so we can control the query executed on the database:
+or anything else, but the key crucial point is that we can control the two inputs "user" and "pwd", so we can control the query executed on the database:
 
 ```sql
-    SELECT * FROM users WHERE username = '$user' AND password = '$user'
+    SELECT * FROM users WHERE username = '$user' AND password = '$pwd'
 ```
 
-If we have a normal behaviour, meaning that we insert "normals" (without ', ", # --) usernames and "normals" password anything goes as supposed: 
+If we have normal behavior, meaning that we insert "normal" (without ', ", #, --) usernames and "normal" passwords, everything goes as expected:
 
 ```text
 user    =   admin
 pwd     =   12345678
 ```
 
-is interpred by the SQL engine as:
+is interpreted by the SQL engine as:
 
 ```sql
     SELECT * FROM users WHERE username = 'admin' AND password = '12345678'
 ```
 
-meaning that we will be logged in as admin just in case the password is 12345678 (not impossible scenario but highly improbable in modern systems).
-But since we have control over "user" and "pwd" inputs we can a payload to change the program logic flow.
+meaning that we will be logged in as admin just in case the password is 12345678 (not an impossible scenario but highly improbable in modern systems).
+But since we have control over "user" and "pwd" inputs, we can craft a payload to change the program logic flow.
 For example:
 
 ```text
@@ -225,42 +224,45 @@ user    =   admin' or 1=1 --
 pwd     =   12345678
 ```
 
-is interpred by the SQL engine as:
+is interpreted by the SQL engine as:
 
 ```sql
     SELECT * FROM users WHERE username = 'admin' or 1=1 --' AND password = '12345678'
 ```
 
-since `--` is the sql syntax means that everything after it is a comment the SQL engine will ignore all everythings that comes after.
+Why?
+We use `'` to close the string, the condition `or 1=1` to get a predicate that is always true, and since `--` is the SQL syntax that means everything after it is a comment, the SQL engine will ignore everything that comes after, resulting in an **always true query for the admin login independent of the password**.
+
+Another example of SQLi manipulating the pwd field could be:
 
 ```text
-user    =   admin' or 1=1 --
-pwd     =   '+ (SELECT password FROM users where username = 'admin') +'
+user    =   admin
+pwd     =   ' OR '1'='1
 ```
 
-is interpred by the SQL engine as:
+is interpreted by the SQL engine as:
 
 ```sql
-    SELECT * FROM users WHERE username = 'admin' or 1=1  AND password = ''+ (SELECT password FROM users where username = 'admin') +''
+    SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1'
 ```
 
-meaning that we manipulated the password field to be equal to itself using a subquery and concatenation operator.
+I'll leave it as an exercise for you to understand why it works.
+
+Through these examples, we got a taste of the potential consequences of SQLi vulnerable code, achieving access as an admin user without even knowing the password (and without even needing to find it).
 
 ### union based SQLi
 
 ### blind SQLi
 
 ### time based SQLi
-
-### second-order SQLi
   
 ## Blind SQLi: two approaches burpsuite vs scripting
 
-We are going to use for this part [this lab](https://portswigger.net/web-security/sql-injection/blind/lab-conditional-responses).
+We are going to use [this lab](https://portswigger.net/web-security/sql-injection/blind/lab-conditional-responses) for this part.
 
 ### Burpsuite usage
 
-The first and most common approach to this challenge we can take is using the
+<!-- The first and most common approach to this challenge we can take is using the  -->
 
 ### Scripting a solution
 
