@@ -89,7 +89,7 @@ D = {1, 5, 8, 15}
 E = 8
 
 |   Algorithm       | # steps   |
-|-------------------+-----------|
+|-------------------|-----------|
 |   Linear search   |    3      |
 |   Binary search   |    2      |
 
@@ -98,7 +98,7 @@ D = {1, 3, 7, 9, 10, 11, 13, 15, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 30}
 E = 24
 
 |   Algorithm       | # steps   |
-|-------------------+-----------|
+|-------------------|-----------|
 |   Linear search   |    15     |
 |   Binary search   |    5      |
 
@@ -125,10 +125,55 @@ This concept of algorithmic efficiency is crucial not only for general programmi
 
 ## What is a SQLi? - Types, exploits & mitigations
 
-SQL injection are a particular subset of code injection vulnerabilities and like all code injection vulnerabilities it arises when the input of a program is not well sanitized and happens that it is intepreted as (injected) code.
+SQL injection are a particular subset of code injection vulnerabilities and like all code injection vulnerabilities it arises when the input of a program is not well sanitized and happens that it is intepreted by the system as (injected) code.
 
-SQL injection are common in web applications and allow an attacker to execute SQL code 
+SQL injection are common in web applications and allow an attacker to execute SQL code. The implications of such power are as you can imagine, it can lead to data exfiltration, data manipulation, and even full system compromise.
 
+We are going to define a complete [threat model](https://owasp.org/www-community/Threat_Modeling), a detection process and patching/mitagation strategies in another post, here we will see just some the most common types their exploitation process, let's see a basic example.
+
+### simple SQLi
+
+Let's see the simplest example of SQL injection.
+We have a simple login form:
+![simulation of binary search](/assets/images/form.png)
+
+```php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "testdb";
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+//  start vulnerable code
+$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    echo "Login successful!";
+} else {
+    echo "Invalid credentials.";
+}
+//  end vulnerable code
+$conn->close();
+
+```
+
+### union based SQLi
+
+### blind SQLi
+
+### time based SQLi
+
+### second-order SQLi
+  
 ## Blind SQLi: two approaches burpsuite vs scripting
 
 We are going to use for this part [this lab](https://portswigger.net/web-security/sql-injection/blind/lab-conditional-responses).
@@ -140,3 +185,12 @@ The first and most common approach to this challenge we can take is using the
 ### Scripting a solution
 
 ## Bonus tip: parallel code runs faster
+
+sources:
+Time complexity:
+
+SQL injections:
+<https://owasp.org/www-community/attacks/SQL_Injection>
+<https://www.acunetix.com/websitesecurity/sql-injection2/>
+<https://www.invicti.com/blog/web-security/sql-injection-cheat-sheet/>
+<https://portswigger.net/web-security/sql-injection#sql-injection-examples>
