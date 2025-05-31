@@ -34,10 +34,10 @@ kramdown:
     preview: true
     preview_as_code: false
 
-# MathJax configuration
-mathjax:
-  source: https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
-  config: 'MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]], displayMath: [["$$","$$"],["\\[","\\]"]], processEscapes: true}});'
+# # MathJax configuration
+# mathjax:
+#   source: https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
+#   config: 'MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]], displayMath: [["$$","$$"],["\\[","\\]"]], processEscapes: true}});'
 
 title: The White Rabbit Hole
 
