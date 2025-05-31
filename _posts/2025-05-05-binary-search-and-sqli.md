@@ -3,6 +3,7 @@ layout      :   post
 title       :   "Binary search and SQLi"
 date        :   2025-05-05 23:09:22 +0100
 categories  :   scripting
+mathjax     :   true
 ---
 
 # Writing your own exploit: <br/> Binary search and SQLi
