@@ -477,8 +477,9 @@ for i in range(1, 30):
         alphabet = string.digits    # [0-9]
         ch = binSearch(0, len(alphabet) - 1, i)
 
+    # add to generalize the algorithm to cover ASCII punctuation
     #if(ch == '\x00'):
-    #    alphabet = string.punctuation # added to generalize the algorithm to cover ASCII 
+    #    alphabet = string.punctuation  
     #    ch = binSearch(0, len(alphabet) - 1, i)
 
     if(ch == '\x00'):
