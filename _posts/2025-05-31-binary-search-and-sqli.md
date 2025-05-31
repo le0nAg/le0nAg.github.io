@@ -1,7 +1,7 @@
 ---
 layout      :   post
 title       :   "Binary search and SQLi"
-date        :   2025-31-05 12:00:00 +0100
+date        :   2025-05-31 12:00:00 +0100
 categories  :   scripting
 mathjax     :   true
 ---
