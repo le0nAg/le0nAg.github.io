@@ -289,7 +289,7 @@ textarea {
  */
 .lineno {
     color: var(--code-color-1);
-    background-color: black;
+    background-color:  rgba(0, 0, 0, 0.5555);
     margin-right: 15px;
 }
 
@@ -298,9 +298,9 @@ figure.highlight {
 }
 
 pre {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5555);
     border: none;
-    padding: 0;
+    padding: 3px;
     margin: 0;
     overflow: auto;
     font-size: $base-font-size;
