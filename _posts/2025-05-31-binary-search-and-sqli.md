@@ -363,7 +363,7 @@ Since the first part is always true (our cookie will always be identical to itse
 
 ### Burp Suite cluster bomb
 
-The first and most common approach to this challenge is using the Burp Intruder. We can define two variable payloads: the first one for the positions over which to iterate ($pos in the image) with a numeric payload, and the second one an alphabet to try.
+The first and most common approach to this challenge is using the Burp Intruder. We can define two variable payloads: the first one for the positions over which to iterate (§pos§ in the image) with a numeric payload, and the second one an alphabet to try (§payload§ in the image).
 
 ![Burp Intruder configuration](/assets/images/burp_intruder_conf.png)
 
