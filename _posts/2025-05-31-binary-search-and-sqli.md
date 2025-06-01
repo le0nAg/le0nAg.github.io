@@ -427,7 +427,7 @@ Cookie: TrackingId=y6tn63qZPONEGZjW' AND SUBSTRING((SELECT Password FROM Users W
 >This query asks: "Is the character at position X greater than 'm'?" <br/>If true, we search in the upper half of the alphabet<br/>If false, we search in the lower half
 
 We can extend this reasonment to all characters: we perform a binary search for each character of the password, in other words we try log(|alphabet|) comparisons for each character of the password.
-The overall complexity is $ O(N*log(M)) $ with the exact complexity being, under the same assumptions above, $$ 30*log(62) \approx 180 $$ requests in the worst-case scenario.
+The overall complexity is $$O(N*log(M))$$ with the exact complexity being, under the same assumptions above, $$30*log(62) \approx 180$$ requests in the worst-case scenario.
 
 ```python
 import requests
