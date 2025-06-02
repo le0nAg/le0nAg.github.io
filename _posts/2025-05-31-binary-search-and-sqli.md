@@ -20,7 +20,7 @@ Today we are going to explore two important concepts of computer science and cyb
 
 ## What is time complexity? - a brief introduction
 
-We can say that **time complexity** is *"a way to measure the efficiency of an algorithm over time"*.
+**Time complexity** is *"a way to measure the efficiency of an algorithm over time"*.
 
 What does that mean? Let's take a classical search problem as an example to explain the concept:
 > Given an ordered set of data D and an element E, find its position. If that element is not in the given set, answer with "-1".
