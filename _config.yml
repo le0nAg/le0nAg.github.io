@@ -27,9 +27,10 @@ github_username: le0nag
 remote_theme: b2a3e8/jekyll-theme-console
 
 # Math rendering
-# markdown: kramdown
-# kramdown:
-#   math_engine: mathjax
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  # math_engine: katex
 #   math_engine_opts:
 #     preview: true
 #     preview_as_code: false
