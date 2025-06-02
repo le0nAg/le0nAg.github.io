@@ -23,22 +23,17 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: le0nag
 
 # Build settings
-# theme: jekyll-theme-console
 remote_theme: b2a3e8/jekyll-theme-console
 
 # Math rendering
 markdown: kramdown
 kramdown:
   math_engine: mathjax
-  # math_engine: katex
-#   math_engine_opts:
-#     preview: true
-#     preview_as_code: false
 
-# # MathJax configuration
-mathjax:
-  source: https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
-  config: 'MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]], displayMath: [["$$","$$"],["\\[","\\]"]], processEscapes: true}});'
+# MathJax configuration
+# mathjax:
+#   source: https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
+#   config: 'MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]], displayMath: [["$$","$$"],["\\[","\\]"]], processEscapes: true}});'
 
 title: The White Rabbit Hole
 
