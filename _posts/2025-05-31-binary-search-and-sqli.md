@@ -499,7 +499,7 @@ By parallelizing the above code (for example with a thread for each character or
 
 In this article, we explored the intersection of computer science theory and practical cybersecurity by examining how algorithmic efficiency concepts can dramatically improve some SQL injection exploitation techniques and seen some of the most basic SQLi types.
 
-The key insight came when comparing exploitation approaches: while traditional brute-force methods like Burp Suite's Intruder require $$O(N*M)$$ requests (potentially 1,860 requests for a 30-character password), implementing binary search reduces this to $O(N\log{}M)$ (approximately 180 requests). This represents a **90% reduction** in required requests, making the attack significantly faster and more stealthy.
+The key insight came when comparing exploitation approaches: while traditional brute-force methods like Burp Suite's Intruder require $$O(N\cdot M)$$ requests (potentially 1,860 requests for a 30-character password), implementing binary search reduces this to $O(N\log{}M)$ (approximately 180 requests). This represents a **90% reduction** in required requests, making the attack significantly faster and more stealthy.
 
 >In real case scenarios hardly ever you will find *the password* as we intend it, passwords on databases *should be* hashed and salted. Take a look at [this](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html). Behind that the technique explained above can be used to eextract other data.
 
