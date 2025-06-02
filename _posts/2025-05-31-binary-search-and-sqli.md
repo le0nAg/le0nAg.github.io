@@ -111,7 +111,7 @@ The Big-O notation describes the upper bound of an algorithm's time complexity i
 For our examples:
 
 - **Linear search**: $$O(n)$$ - The time complexity grows linearly with the input size. In the worst case, we might need to check every element.
-- **Binary search**: $$O(\log{}n)$$ - The time complexity grows logarithmically with the input size. With each step, we eliminate half of the remaining elements.
+- **Binary search**: $O(\log{} n)$ - The time complexity grows logarithmically with the input size. With each step, we eliminate half of the remaining elements.
 
 This logarithmic growth is what makes binary search significantly more efficient for large datasets. Consider a dataset with 1,000,000 elements:
 
