@@ -110,8 +110,8 @@ The Big-O notation describes the upper bound of an algorithm's time complexity i
 
 For our examples:
 
-- **Linear search**: O(n) - The time complexity grows linearly with the input size. In the worst case, we might need to check every element.
-- **Binary search**: O(log n) - The time complexity grows logarithmically with the input size. With each step, we eliminate half of the remaining elements.
+- **Linear search**: $$O(n)$$ - The time complexity grows linearly with the input size. In the worst case, we might need to check every element.
+- **Binary search**: $$O(\log{}n)$$ - The time complexity grows logarithmically with the input size. With each step, we eliminate half of the remaining elements.
 
 This logarithmic growth is what makes binary search significantly more efficient for large datasets. Consider a dataset with 1,000,000 elements:
 
@@ -374,7 +374,7 @@ At this point we can launch the cluster attack and go read a book (I'm not jokin
 
 After some waiting we get all our responses, meaning that we can reconstruct the password through the combination of the payloads.
 
-This attack tries for each character of the password the entire alphabet (the default one is `[a-zA-Z0-9]`). This means that, remembering what we have said before, it runs in O(N*M) where N (let's assume 30) is the length of the password and M is the length of the alphabet (62 in case of `[a-zA-Z0-9]`). This means that it will give us an exact worst-case scenario of 30*62 = 1,860 requests before exploiting the password definitively.
+This attack tries for each character of the password the entire alphabet (the default one is `[a-zA-Z0-9]`). This means that, remembering what we have said before, it runs in $$O(N\cdot M)$$ where N is the length (let's assume 30) of the password and M is the length of the alphabet (62 in case of `[a-zA-Z0-9]`). This means that it will give us an exact worst-case scenario of $30*62 = 1,860$ requests before exploiting the password definitively.
 
 Unfortunately, Burp Intruder *as is* is unable to do better—it is intended to do brute force attacks.
 
@@ -418,7 +418,7 @@ print("password:", result)
 
 ### Scripting a solution
 
-We can observe a thing: searching a single character (for example the first one) we can find it in O(log M) using a binary search since it is like searching it in an alphabet and an *alphabet is by definition an ordered set*, for this reason we introduce a second payload that uses '>' instead of '=', in this way we can say if the char at index $pos is equal, higher or lower.
+We can observe a thing: searching a single character (for example the first one) we can find it in $$O(\log{} M)$$ using a binary search since it is like searching it in an alphabet and an *alphabet is by definition an ordered set*, for this reason we introduce a second payload that uses '>' instead of '=', in this way we can say if the char at index $pos is equal, higher or lower.
 
 ```text
 Cookie: TrackingId=y6tn63qZPONEGZjW' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'administrator'), $pos, 1) > '$char
@@ -493,13 +493,13 @@ for i in range(1, 30):
 print("password: " + result)
 ```
 
-By parallelizing the above code (for example with a thread for each character or an interval), we are able to boost the efficiency of the code even more, making it close to O(log M) since generally N << M.
+By parallelizing the above code (for example with a thread for each character or an interval), we are able to boost the efficiency of the code even more, making it close to $$O(\log{}M)$$ since generally N << M.
 
 ## Conclusions
 
 In this article, we explored the intersection of computer science theory and practical cybersecurity by examining how algorithmic efficiency concepts can dramatically improve some SQL injection exploitation techniques and seen some of the most basic SQLi types.
 
-The key insight came when comparing exploitation approaches: while traditional brute-force methods like Burp Suite's Intruder require $O(N*M)$ requests (potentially 1,860 requests for a 30-character password), implementing binary search reduces this to $O(N*log M)$ (approximately 180 requests). This represents a **90% reduction** in required requests, making the attack significantly faster and more stealthy.
+The key insight came when comparing exploitation approaches: while traditional brute-force methods like Burp Suite's Intruder require $$O(N*M)$$ requests (potentially 1,860 requests for a 30-character password), implementing binary search reduces this to $O(N\log{}M)$ (approximately 180 requests). This represents a **90% reduction** in required requests, making the attack significantly faster and more stealthy.
 
 >In real case scenarios hardly ever you will find *the password* as we intend it, passwords on databases *should be* hashed and salted. Take a look at [this](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html). Behind that the technique explained above can be used to eextract other data.
 
