@@ -10,7 +10,7 @@ mathjax     :   true
 
 ## Introduction
 
-Like many others, I started my journey in web application hacking through CTFs (and I seriously recommend them—it's a valuable and fun way to learn!). After googling some details of CTFs that I was unable to solve, as happens when you don't know something, I found myself reading write-ups of the solutions.
+Like many others, I started my journey in web application hacking through [CTFs](https://en.m.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) (and I seriously recommend them—it's a valuable and fun way to learn!). After googling some details of CTFs that I was unable to solve, as happens when you don't know something, I found myself reading write-ups of the solutions.
 
 In most cases, you will find a brief explanation of the vulnerability and a very specific one of the exploitation process used to get the flag. Also, in most cases, these writeups will mention pre-built tools that do almost all of the work for you, giving you the flag or a pre-built exploit.
 
