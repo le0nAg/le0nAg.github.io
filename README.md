@@ -12,6 +12,7 @@ TODO-technical-articles:
 
 - BB84
 - cryptographic series with implementation
+- math & provable sec
   
 TODO to decide:
 
