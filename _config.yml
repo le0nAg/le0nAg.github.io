@@ -44,7 +44,8 @@ header_pages:
 style: dark
 
 # footer: 'follow us on <a href="https://twitter.com/">twitter</a>'
-google_analytics: G-TYZBL08V4S
+# google_analytics: G-TYZBL08V4S
+google_analytics: G-87FZ7BQWPS
 
 # Exclude from processing.
 # The following items will not be processed, by default.
