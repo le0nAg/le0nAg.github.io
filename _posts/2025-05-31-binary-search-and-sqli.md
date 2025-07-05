@@ -319,7 +319,7 @@ If we want we can interact the same payload with other types to determine the ty
 'UNION SELECT table_name, NULL, NULL FROM information_schema.tables --
 ```
 
-![alt text](assets/images/union_info_schemas.png)
+![alt text](/assets/images/union_info_schemas.png)
 *A similar example taken from a [laboratory](https://portswigger.net/web-security/sql-injection/union-attacks/lab-retrieve-data-from-other-tables) of PortSwigger Academy.<br/>In the url bar we can see the payload used and in the page the result showing the tables on the database.*
 
 and retrivieng the data from it:
