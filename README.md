@@ -13,6 +13,7 @@ TODO-technical-articles:
 - BB84
 - cryptographic series with implementation
 - math & provable sec
+- theorem proover: God existance and shellcode
   
 TODO to decide:
 
