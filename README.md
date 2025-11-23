@@ -13,6 +13,9 @@ TODO-technical-articles:
 - BB84
 - cryptographic series with implementation
 - math & provable sec
+- file encryptor
+- machine learning in embedded context
+- PQE
 - theorem proover: God existance and shellcode
   
 TODO to decide:
