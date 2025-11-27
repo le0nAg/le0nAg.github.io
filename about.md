@@ -32,6 +32,7 @@ BUT, if you're curious and would like to explore on your own, here is the list o
 
 - **Viasat attack** — {cybersecurity & space}
 - **Deep dive into “On Removing Rejection Conditions in Practical Lattice-Based Signatures”** — {PQE}
+- **BB84** {Quantum encryption}
 - **Theorem provers, God’s existence, shellcodes & formal methods** — {logic, cybersecurity, space}
 - **Cryptographic series with implementation** — {modern cryptography}
 
