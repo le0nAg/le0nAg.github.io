@@ -1,7 +1,11 @@
 url: "https://le0nag.github.io"
 github_username: le0nag
 
-remote_theme: b2a3e8/jekyll-theme-console
+plugins:
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+# remote_theme: b2a3e8/jekyll-theme-console
 
 # Math rendering
 markdown: kramdown
@@ -21,7 +25,5 @@ header_pages:
 
 style: dark
 
-plugins:
-  - jekyll-seo-tag
 
 disable_google_fonts: false
