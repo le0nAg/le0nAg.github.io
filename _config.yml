@@ -1,7 +1,7 @@
 url: "https://le0nag.github.io"
 github_username: le0nag
 
-# remote_theme: b2a3e8/jekyll-theme-console
+remote_theme: b2a3e8/jekyll-theme-console
 
 # Math rendering
 markdown: kramdown
