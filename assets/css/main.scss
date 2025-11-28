@@ -1,4 +1,7 @@
-@import "{{base}}";
+---
+# Front matter for Jekyll
+---
+@import "base";
 
 :root {
   --background-color: purple !important;
