@@ -1,7 +1,12 @@
 ---
 # Front matter for Jekyll
 ---
-@import "base";
+@import "jekyll-theme-console";
+
+
+body {
+    background-color: #000000;
+}
 
 :root {
   --background-color: purple !important;
