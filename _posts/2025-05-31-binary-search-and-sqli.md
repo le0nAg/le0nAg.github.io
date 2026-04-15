@@ -2,6 +2,8 @@
 layout      :   post
 title       :   "Binary search and SQLi"
 date        :   2025-05-31 12:00:00 +0100
+description :   A guide that introduce to algorithms applied to SQL injectionts (SQLi) 
+image: "/assets/bin_lin_graph.png"
 categories  :   scripting
 mathjax     :   true
 ---
@@ -501,15 +503,8 @@ In this article, we explored the intersection of computer science theory and pra
 
 The key insight came when comparing exploitation approaches: while traditional brute-force methods like Burp Suite's Intruder require $$O(N\cdot M)$$ requests (potentially 1,860 requests for a 30-character password), implementing binary search reduces this to $O(N\log{}M)$ (approximately 180 requests). This represents a **90% reduction** in required requests, making the attack significantly faster and more stealthy.
 
->In real case scenarios hardly ever you will find *the password* as we intend it, passwords on databases *should be* hashed and salted. Take a look at [this](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html). Behind that the technique explained above can be used to eextract other data.
+>In real case scenarios hardly ever you will find *the password* as we intend it, passwords on databases *should be* hashed and salted. Take a look at [this](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html). Behind that the technique explained above can be used to extract other data.
 
-**Key takeaways:**
-
-- Algorithmic thinking can dramatically improve exploitation efficiency
-- Custom scripts often outperform generic tools when you understand the underlying problem
-- Time complexity analysis helps predict and optimize attack performance
-
-For those interested in expanding on this work, I suggest implementing the binary search approach for time-based blind SQL injection scenarios, where response timing becomes the oracle instead of content differences.
 
 **Sources:**
 

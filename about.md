@@ -42,6 +42,7 @@ BUT, if you're curious and would like to explore on your own, here is the list o
 
 - **File Encryptor** — {secure programming}
 - **Machine learning in embedded systems** — {TinyML}
+- **LFS** — {low level systems}
 
 ---
 
